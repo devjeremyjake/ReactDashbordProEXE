@@ -1,0 +1,50 @@
+:root {
+	--Black: 0, 0%, 0%;
+	--blue: 219, 97%, 40%;
+	--red: 0, 100%, 50%;
+	--orange: 39, 100%, 50%;
+	--white: 0, 0%, 100%;
+}
+.home {
+	padding: 60px 120px;
+}
+
+.home__heading {
+	font-size: 40px;
+	font-weight: 600;
+	color: hsl(var(--Black));
+	margin-bottom: 30px;
+}
+
+.home__content {
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.158);
+	background-color: hsl(var(--white));
+	border-radius: 10px;
+}
+
+.home__contentTop {
+	padding: 20px 50px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.459);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.home__contentTop > p {
+	font-size: 19px;
+}
+
+.home__contentTop > button {
+	border: none;
+	padding: 10px 30px;
+	font-size: 18px;
+	background-color: hsl(var(--blue));
+	color: hsl(var(--white));
+	font-weight: 500;
+	border-radius: 7px;
+}
+
+.home__contentTop > button:active {
+	transform: scale(1);
+	box-shadow: 0 0 5px #000;
+}

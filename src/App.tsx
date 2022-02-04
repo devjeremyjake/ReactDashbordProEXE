@@ -1,26 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import * as RouteLink from './helpers/Routes';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+// Pages import
+const HomePage = React.lazy(() => import('./pages/Home/Home'));
+const AddPage = React.lazy(() => import('./pages/AddUser'));
+
+const App = () => {
+	return (
+		<BrowserRouter>
+			<Routes>
+				<Route
+					path={RouteLink.Home}
+					element={
+						<React.Suspense fallback={<>...</>}>
+							<HomePage />
+						</React.Suspense>
+					}
+				/>
+				<Route
+					path={RouteLink.AddNew}
+					element={
+						<React.Suspense fallback={<>...</>}>
+							<AddPage />
+						</React.Suspense>
+					}
+				/>
+			</Routes>
+		</BrowserRouter>
+		// <>
+		// 	<Home />
+		// </>
+	);
+};
 
 export default App;
