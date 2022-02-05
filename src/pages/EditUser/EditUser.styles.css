@@ -1,0 +1,71 @@
+:root {
+	--red: 0, 100%, 50%;
+	--white: 0, 0%, 100%;
+	--green: 138, 100%, 23%;
+}
+.editUser {
+	margin: 60px 120px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.158);
+}
+
+.editUser > h3 {
+	padding: 30px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.596);
+	font-size: 30px;
+	font-weight: 600;
+}
+
+.editUser__content {
+	padding: 30px;
+}
+
+.editUser__formContent {
+	display: grid;
+	grid-template-columns: 15% 80%;
+	margin-bottom: 20px;
+	align-items: center;
+}
+
+.editUser__formContent > label {
+	margin-right: 30px;
+	font-size: 18px;
+}
+
+.editUser__formContent > div > input {
+	padding: 10px;
+	outline: none;
+	width: 100%;
+}
+
+.editUser__buttons {
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+	margin-right: 50px;
+}
+
+.editUser__buttons > button {
+	padding: 10px 30px;
+	border: none;
+	outline: none;
+	font-size: 18px;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.editUser__buttons > button:not(:last-child) {
+	margin-right: 10px;
+}
+
+.editUser__buttons > button:nth-child(1) {
+	background-color: transparent;
+	border: 1px solid #ff0000;
+	color: hsl(var(--red));
+}
+
+.editUser__buttons > button:nth-child(2) {
+	background-color: transparent;
+	border: 1px solid #007423;
+	color: hsl(var(--white));
+	background-color: hsl(var(--green));
+}

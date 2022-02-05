@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { User } from '../../helpers/model';
 
@@ -31,15 +31,31 @@ const userActionsSlice = createSlice({
 	name: 'userListing',
 	initialState,
 	reducers: {
-		addUser: (state, action: PayloadAction<string>) => {
-			state.users = [...state.users, action.payload];
+		addUser: (state, { payload }) => {
+			state.users = [...state.users, payload];
 		},
-		editUser: (state, action: PayloadAction<number>) => {
-			state.userSingle = state.users.filter(
-				({ user }: { user: any }) => user.id === action.payload
+		editUserFetch: (state, { payload }) => {
+			state.userSingle = state.users.find((user: any) => user.id === payload);
+		},
+		editUser: (state, { payload }) => {
+			const index = state.users.findIndex(
+				(user: any) => user.id == state.userSingle.id
+			);
+			const newArray = [...state.users];
+			newArray[index] = payload;
+			return {
+				...state,
+				users: newArray,
+			};
+		},
+		deleteUser: (state, { payload }) => {
+			state.users = state.users.filter(
+				({ id }: { id: number }) => id !== payload
 			);
 		},
-		deleteUser: (state, action: PayloadAction<number>) => {},
+		reloadUser: (state) => {
+			state.users = [...state.users];
+		},
 	},
 	extraReducers: (builder) => {
 		builder
@@ -59,5 +75,6 @@ const userActionsSlice = createSlice({
 });
 
 const { actions, reducer } = userActionsSlice;
-export const { addUser, editUser, deleteUser } = actions;
+export const { addUser, editUser, deleteUser, reloadUser, editUserFetch } =
+	actions;
 export default reducer;

@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import * as RouteLink from './helpers/Routes';
 
+import { usersFetch } from './redux/features/userActionsSlice';
 // Pages import
 const HomePage = React.lazy(() => import('./pages/Home/Home'));
-const AddPage = React.lazy(() => import('./pages/AddUser'));
+const AddPage = React.lazy(() => import('./pages/AddUser/AddUser'));
+const EditUser = React.lazy(() => import('./pages/EditUser/EditUser'));
 
 const App = () => {
+	const dispatch = useDispatch();
+	useEffect(() => {
+		dispatch(usersFetch());
+	}, [dispatch]);
+
 	return (
 		<BrowserRouter>
 			<Routes>
@@ -26,11 +34,16 @@ const App = () => {
 						</React.Suspense>
 					}
 				/>
+				<Route
+					path={RouteLink.EditUser}
+					element={
+						<React.Suspense fallback={<>...</>}>
+							<EditUser />
+						</React.Suspense>
+					}
+				/>
 			</Routes>
 		</BrowserRouter>
-		// <>
-		// 	<Home />
-		// </>
 	);
 };
 

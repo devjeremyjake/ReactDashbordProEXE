@@ -2,7 +2,6 @@
 	--Black: 0, 0%, 0%;
 	--blue: 219, 97%, 40%;
 	--red: 0, 100%, 50%;
-	--orange: 39, 100%, 50%;
 	--white: 0, 0%, 100%;
 }
 .home {
@@ -47,4 +46,8 @@
 .home__contentTop > button:active {
 	transform: scale(1);
 	box-shadow: 0 0 5px #000;
+}
+
+.home__contentTable {
+	padding: 30px;
 }
