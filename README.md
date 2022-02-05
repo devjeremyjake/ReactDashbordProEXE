@@ -9,7 +9,7 @@
 ### `https://github.com/devjeremyjake/ReactDashbordProEXE.git`
 
 Clone the project with the link.
-git clone https://github.com/devjeremyjake/ReactDashbordProEXE.git
+"git clone https://github.com/devjeremyjake/ReactDashbordProEXE.git"
 
 In the project directory, you can run:
 
