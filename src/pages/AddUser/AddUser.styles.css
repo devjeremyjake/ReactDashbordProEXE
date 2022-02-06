@@ -69,3 +69,14 @@
 	color: hsl(var(--white));
 	background-color: hsl(var(--green));
 }
+
+/* Media query */
+@media (max-width: 600px) {
+	.addUser {
+		margin: 20px 10px;
+	}
+
+	.addUser__formContent {
+		grid-template-columns: 1fr;
+	}
+}
